@@ -1,0 +1,3 @@
+[submodule "vendor/twitter-api-typescript-sdk"]
+	path = vendor/twitter-api-typescript-sdk
+	url = https://github.com/kochie/twitter-api-typescript-sdk

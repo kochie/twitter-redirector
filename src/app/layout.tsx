@@ -1,3 +1,4 @@
+import { TwitterProvider } from "@/providers/twitter";
 import "@/styles/globals.css";
 
 export default function RootLayout({
@@ -7,7 +8,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <TwitterProvider>{children}</TwitterProvider>
+      </body>
     </html>
   );
 }

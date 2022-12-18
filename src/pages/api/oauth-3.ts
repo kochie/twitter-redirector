@@ -6,13 +6,11 @@ import { NextApiRequest, NextApiResponse } from "next";
 // };
 
 export default (request: NextApiRequest, response: NextApiResponse) => {
-  const url = authClient.generateAuthURL({
-    code_challenge_method: "s256",
-    state: "my-state",
-  });
+  const { code } = JSON.parse(request.body);
+  const token = authClient.requestAccessToken(code);
 
   return response.json({
     name: `Hello, from ${request.url} I'm now an Edge Function!`,
-    url,
+    token,
   });
 };
