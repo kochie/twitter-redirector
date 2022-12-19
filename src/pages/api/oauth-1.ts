@@ -7,7 +7,8 @@ import { NextApiRequest, NextApiResponse } from "next";
 
 export default (request: NextApiRequest, response: NextApiResponse) => {
   const url = authClient.generateAuthURL({
-    code_challenge_method: "s256",
+    code_challenge_method: "plain",
+    code_challenge: "my-code-challenge",
     state: "my-state",
   });
 

@@ -7,11 +7,17 @@ export default async function Page({
   if (Array.isArray(searchParams.code))
     return <div>Mah Goodness, too much Code!</div>;
 
-  console.log(`${process.env.VERCEL_URL}/api/oauth-3`);
-  const token = await fetch(`${process.env.VERCEL_URL}/api/oauth-3`, {
+  const url = new URL(
+    "/api/oauth-3",
+    process.env.VERCEL_URL ?? "http://localhost:3000"
+  );
+  // console.log(`${process.env.VERCEL_URL}/api/oauth-3`);
+  const response = await fetch(url, {
     method: "POST",
     body: JSON.stringify({ code: searchParams.code }),
   });
+
+  const { token } = await response.json();
 
   console.log(token);
 

@@ -1,7 +1,14 @@
 import Link from "next/link";
 
 export default async function Page() {
-  const response = await fetch(`${process.env.VERCEL_URL}/api/oauth-1`);
+  const apiUrl = new URL(
+    "/api/oauth-1",
+    process.env.VERCEL_URL ?? "http://localhost:3000"
+  );
+
+  console.log("URL", apiUrl.toString());
+
+  const response = await fetch(apiUrl);
   const { url } = await response.json();
 
   return (

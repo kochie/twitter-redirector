@@ -1,7 +1,7 @@
 "use client";
 
 import { createContext, useContext } from "react";
-import { auth, Client } from "twitter-api-sdk";
+import { auth, Client } from "@kochie/twitter-api-sdk";
 import { authClient, client } from "@/lib/client";
 
 const TwitterClientContext = createContext({
